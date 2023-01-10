@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title> Ejemplo getElementById </title>
+
+<script>
+ function CambiaColor(nombreColor) {
+ let obj = document.getElementById("informacion");
+ obj.style.color = nombreColor;
+ }
+ function CambiaFont_Style(nombreFont_Style) {
+ let obj = document.getElementById("informacion");
+ obj.style.fontStyle = nombreFont_Style;
+ }
+ </script>
+</head>
+<body>
+ <p id="informacion">Curso de ECMAScript6</p>
+ <button onclick="CambiaColor('blue');">azul</button>
+ <button onclick="CambiaColor('red');">rojo</button>
+ <button onclick="CambiaFont_Style('italic');">Cursiva</button>
+ <button onclick="CambiaFont_Style('normal');">Normal</button>
+</body>
+</html> 
