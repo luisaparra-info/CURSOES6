@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head>
+<meta content="text/html; charset=utf-8">
+<script>
+function esPar(numero){
+    if (numero%2==0){
+        return true;
+    }else{
+        return false;
+    }
+}
+function cuadrado(numero=1){
+    return numero * numero;
+}    
+
+function Calcula(numero=1)
+{
+ let calculo = cuadrado(numero);
+ if (esPar(numero)){
+    document.write(`<p/> Resultado es par = ${calculo} </p>`);   
+ }
+ document.write(`<p/> Resultado = ${calculo} </p>`);
+}
+</script>
+</head>
+<body>
+<input type="button" onclick="Calcula()" value="Calculo">
+<input type="button" onclick="Calcula(5)" value="Otro Calculo ">
+
+
+
+</body>
+</html> 
