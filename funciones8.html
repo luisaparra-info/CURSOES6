@@ -12,13 +12,28 @@
  let obj = document.getElementById("informacion");
  obj.style.fontStyle = nombreFont_Style;
  }
+ function IncrementarFont_Size() {
+ let obj = document.getElementById("informacion");
+ cadena = obj.style.fontSize.split('px');
+ pixels = parseInt(cadena[0]) + 1;
+ obj.style.fontSize = pixels + "px";
+ }
+ function DecrementarFont_Size() {
+ let obj = document.getElementById("informacion");
+ cadena = obj.style.fontSize.split('px');
+ pixels = parseInt(cadena[0]) - 1;
+ obj.style.fontSize = pixels + "px";
+ }
  </script>
 </head>
 <body>
- <p id="informacion">Curso de ECMAScript6</p>
+ <p id="informacion" style="font-size: 16px;">Curso de ECMAScript6</p>
  <button onclick="CambiaColor('blue');">azul</button>
  <button onclick="CambiaColor('red');">rojo</button>
  <button onclick="CambiaFont_Style('italic');">Cursiva</button>
  <button onclick="CambiaFont_Style('normal');">Normal</button>
+ <button onclick="IncrementarFont_Size();">A+</button>
+ <button onclick="DecrementarFont_Size();">A-</button>
+ 
 </body>
 </html> 
