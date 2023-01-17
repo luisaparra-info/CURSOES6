@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script>
+ function calcula()
+ {
+ document.datos.cuadrado.value = eval(document.datos.entrada.value+' ** 2');
+ document.datos.cubo.value = eval(document.datos.entrada.value+' ** 3');
+ }
+ </script>
+</head>
+<body>
+<form name="datos" action="Ejercicio.html" >
+
+ Escribe un número entero:
+ <input type="text" size="20" name="entrada" />
+ <input type="button" name="B1" value="Ejecuta" onclick="calcula()" />
+ <br /><br />
+ Cuadrado:<input type="text" size="20" name="cuadrado"/>
+ Cubo:<input type="text" size="20" name="cubo"/>
+ <br /><br />
+ <input type="reset" name="B2" value="Reset" />
+
+</form>
+</body>
+</html> 

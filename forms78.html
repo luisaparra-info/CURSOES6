@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<title> Entrada de Datos</title>
+<style>
+.d{
+    display: inline-block;
+    width: 211px;
+    padding-top: 10px;  
+}
+.i{
+    background-color: #fff;
+    border: 1px solid #dadce0;
+    border-radius: 2px 2px 0 0;
+    color: #000;
+    font-size: 180%;
+    height: 40px;
+    padding: 1px 6px;
+    text-align: center;
+    width: 197px;
+}
+.s{
+    background: url(//ssl.gstatic.com/ui/v1/disclosure/grey-disclosure-arrow-up-down.png) 100% no-repeat #f8f9fa;
+    border: 1px solid #dadce0;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 5px 16px 5px 5px;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    appearance: none;
+    background-position-x: 95%;
+    border-radius: 0 0 2px 2px;
+    color: #202124;
+    width: 211px;
+    margin-top: -1px;
+}
+.igual{
+    display: inline-block;
+    line-height: 44px;
+    width: 27px;
+    text-align: center;
+    font-size: 26px;
+    color: #70757a;
+    padding-top: 10px;
+    vertical-align: top;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+</style>
+<script>
+ function calcula()
+ {
+    
+ }
+</script>
+</head>
+<body>
+    <form name="conversor">
+    <div class="d"> 
+        <input class="i" name="dato1" value="" onchange="calcula()"> 
+        <select class="s" name="opcion1" onchange="calcula()">  
+            <option value="1" selected>Grado Celsius</option>
+            <option value="2">Grado Fahrenheit</option>
+            <option value="3">Kelvin</option>  
+        </select> 
+    </div>
+    <div class="igual">=</div>
+    <div class="d"> 
+        <input class="i" name="dato1" value="" onchange="calcula()"> 
+        <select class="s" name="opcion2" onchange="calcula()">  
+            <option value="1">Grado Celsius</option>
+            <option value="2" selected>Grado Fahrenheit</option>
+            <option value="3">Kelvin</option>  
+        </select> 
+    </div>
+</form>
+</body>
+</html> 
