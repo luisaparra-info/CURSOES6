@@ -6,12 +6,45 @@
 input[type="number" i]{
     width: 51px;
 }
+input[type="button" i] {
+    margin-right: 30px;
+}
+
+label{
+    display: block;
+}
+
+div{
+    width: 150px;
+    display: inline-block;
+}
+
+form{
+    width: 400px;
+}
+.error{
+    display: table;
+    width: 120px;
+    height: 20px;
+    font-size: 13px;
+    color:red;
+}
+.resultado{
+    width: 100%;
+}
+#salida{
+    visibility: hidden;
+}
+
+.error_input{
+    border-color: red;
+    background-color: tomato;
+}
 
 
 </style>
 <script>
 var errores=[1,1,1,1]
- 
 function hayError(){
     if(errores.indexOf(1)== -1) return false;
     else return true;
@@ -24,11 +57,11 @@ function calculaNota()
         nota1 = parseFloat(document.fdatos.nota1.value);
         nota2 = parseFloat(document.fdatos.nota2.value);
         document.getElementById("nota").innerHTML=nota1*porcentaje1/100 + nota2*porcentaje2/100;
-        document.getElementById("salida").innerHTML=""
+        document.getElementById("salida").style.visibility = "hidden";
 
     }else{
         document.getElementById("nota").innerHTML="";
-        document.getElementById("salida").innerHTML="Revisa que todos los campos sean correctos"
+        document.getElementById("salida").style.visibility = "visible";
 
     }
 
@@ -37,9 +70,11 @@ function calculaNota()
     if ((parseFloat(document.fdatos.porcentaje1.value))< 0 || (parseFloat(document.fdatos.porcentaje1.value)>100)){
         document.getElementById("e_porcentaje1").innerHTML="Error en el porcentaje";
         errores[0]=1;
+        
     }else{
         document.getElementById("e_porcentaje1").innerHTML="";
         document.fdatos.porcentaje2.value=100- parseFloat(document.fdatos.porcentaje1.value);
+    
         errores[0]=0;
         errores[1]=0;
     }   
@@ -60,10 +95,12 @@ function calculaNota()
  function evaluarNota1(){
     if ((parseFloat(document.fdatos.nota1.value))< 0 || (parseFloat(document.fdatos.nota1.value)>10)){
         document.getElementById("e_nota1").innerHTML="Error en la nota";
+        document.getElementById("n1").classList.add("error_input")
         errores[2]=1;
     }else{
         document.getElementById("e_nota1").innerHTML="";
         errores[2]=0;
+        document.getElementById("n1").classList.remove("error_input")
     }   
 
  }
@@ -83,20 +120,24 @@ function calculaNota()
 
 <form name="fdatos">
  <div>
-    Nota1: <input type="number" size="4" name="nota1" onchange="evaluarNota1()"/> 
-    <span id="e_nota1"></span>
-    Porcentaje: <input type="number" size="4" name="porcentaje1" onchange="evaluarPorcentaje1()"/><span id="e_porcentaje1"></span>
- </div>
+    <label>Nota 1: <input id="n1" type="number" size="4" name="nota1" onchange="evaluarNota1()"/></label> 
+    <span class="error" id="e_nota1"></span>
+    <label>Nota 2: <input type="number" size="4" name="nota2"onchange="evaluarNota2()"/></label>
+    <span class="error" id="e_nota2"></span>
+  
+</div>
  <div>
- Nota2: <input type="number" size="4" name="nota2"onchange="evaluarNota2()"/> <span id="e_nota2"></span>
- Porcentaje: <input type="number" size="4" name="porcentaje2" onchange="evaluarPorcentaje2()"/><span id="e_porcentaje2"></span>
+    <label>Porcentaje 1: <input type="number" size="4" name="porcentaje1" onchange="evaluarPorcentaje1()"/></label>
+    <span class="error" id="e_porcentaje1"></span>
+    <label>Porcentaje 2: <input type="number" size="4" name="porcentaje2" onchange="evaluarPorcentaje2()"/></label>
+    <span class="error" id="e_porcentaje2"> </span>
  </div>
- <div>
+ <div class="resultado">
  <input type="button" name="calcula" value="CALCULAR" onclick="calculaNota()" />
  Nota ponderada: <span id="nota"></span>
 </div>
 </form>
 
-<div id ="salida"></div>
+<div id ="salida" class="error resultado">Revisa que todos los campos sean correctos</div>
 </body>
 </html> 
