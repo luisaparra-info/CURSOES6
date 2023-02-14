@@ -4,30 +4,28 @@
  var DI = document.game.dinero.value = 100;
  }
  function calc(){
- var Din = parseInt(document.game.dinero.value);
+ var Din = parseFloat(document.game.dinero.value);
  var Num = document.game.num.value;
- var Apu = parseInt(document.game.apuesta.value);
- var dado = Math.floor(Math.random() * 7);
+ var Apu = parseFloat(document.game.apuesta.value);
+ var dado = Math.floor(Math.random() * 6 + 1);
  var ganancia = 0;
- if (Din > 0)
+ if (Din >= Apu)
  {
- if (Num == dado)
- {
- document.game.dado.value = dado;
- document.game.res.value = ("Has ganado! " + Apu*2);
- ganancia = (Din+Apu*2);
- document.game.dinero.value = ganancia;
- }
- else{
- document.game.dado.value = dado;
- document.game.res.value = ("Has perdido!" + Apu);
- ganancia = (Din-Apu);
- document.game.dinero.value = ganancia;
- }
- }
- else{
- window.alert("Has perdido todo tu dinero!");
- }
+    if (Num == dado)
+    {
+        document.game.res.value = ("Has ganado! " + Apu*2);
+        ganancia = (Din+Apu*2);
+    }
+    else{
+        document.game.res.value = ("Has perdido!" + Apu);
+        ganancia = (Din-Apu);
+    }
+
+    document.game.dado.value = dado;
+    document.game.dinero.value = ganancia;
+ }else{
+        window.alert("No tienes suficiente dinero!");
+    }
  }
  </script>
  </head>
@@ -35,12 +33,12 @@
  <h1 align="center">JUEGO APUESTAS</h1>
  <form name="game">
  <div align="center">
- Dinero: <input type="text" name="dinero" size="5"> &nbsp;&nbsp;
+ Dinero: <input type="number" name="dinero" size="5"> &nbsp;&nbsp;
  Numero del dado: <input type="label" name="dado" size="5">
  <br><br>
- Introduzca un numero del 1 al 6: <input type="text" name="num" size="5">
+ Introduzca un numero del 1 al 6: <input type="number" name="num" size="5">
  <br><br>
- Introduzca su apuesta: <input type="text" name="apuesta" size="5">
+ Introduzca su apuesta: <input type="number" name="apuesta" size="5">
  <br><br>
  <input type="button" name="play" value="Jugar" onClick="calc()">
  <input type="button" name="Start" value="Start" onClick="inic()">
