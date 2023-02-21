@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ECMA6 - Clase Ficha</title>
+<!-- https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes -->
+<script>
+class ficha {
+
+ constructor(nombre, edad, curso="1ESO") {
+        this._nombre=nombre;
+        this._edad=edad;
+        this._curso=curso;
+        this._direccion= {
+            calle:"",
+            numero:"",
+            localidad:"",
+            cp:""
+        }
+ }// fin constructor
+ get nombre(){
+    return this._nombre;       
+ }
+ 
+ /*
+ Métodos get, son métodos para la obtener el valor de un atributo.
+ Métodos set, establecen valores a los atributos.
+ 
+ */
+
+} //fin class ficha
+
+function programa() {
+ var alumno1 = new ficha("Pepe",15);
+ var alumno2 = new ficha("Juan",18)
+ document.writeln(alumno1.nombre());
+}
+</script>
+</head>
+<body>
+ <h3>Clase ficha </h3>
+ <input type="button" value="Pulsa aquí" onclick="programa()" />
+</body>
+</html> 
