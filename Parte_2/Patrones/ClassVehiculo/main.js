@@ -50,6 +50,9 @@ class Vehiculo {
         this.km += km;
       }
     }
+    mostrarInformacion(){
+      
+    }
   }
   
   
