@@ -35,23 +35,23 @@ set posY(incremento){
     this._posY=this._posY + incremento;
 }
 
-incrementaX(sentido) {
+incrementaX(sentido,name) {
     if (sentido=="R")
         Cuadrado.posX = (Cuadrado.posX || 500) + 20;
     else Cuadrado.posX = (Cuadrado.posX || 500) - 20;
+    document.getElementById(name).style.left = Cuadrado.posX + "px";
+
  }
 
- incrementaY(sentido) {
+ incrementaY(sentido,name) {
     if (sentido=="U")
         Cuadrado.posY = (Cuadrado.posY || 200) - 20;
     else Cuadrado.posY = (Cuadrado.posY || 200) + 20;
+    document.getElementById(name).style.top = Cuadrado.posY + "px";
+
+
  }
- establecerPosX(name) {
- document.getElementById(name).style.left = Cuadrado.posX + "px";
- }
- establecerPosY(name) {
- document.getElementById(name).style.top = Cuadrado.posY + "px";
- }
+
 
  mostrarPantalla(name) {
  let cadena = "PosiciónX:" + Cuadrado.posX + " PosiciónY:" + Cuadrado.posY
@@ -60,43 +60,35 @@ incrementaX(sentido) {
 }
 
 
-function incrementar (nom,accion){
+function mover (nom,accion){
  objCuadrado = new Cuadrado();
  if (accion=='U'){
-    objCuadrado.incrementaY("U");
-    objCuadrado.establecerPosY(nom)
+    objCuadrado.incrementaY("U",nom);
  }else if (accion=='D'){
-    objCuadrado.incrementaY("D");
-    objCuadrado.establecerPosY(nom)
+    objCuadrado.incrementaY("D",nom);
  }else if (accion=='R'){
-    objCuadrado.incrementaX('R');
-    objCuadrado.establecerPosX(nom)
+    objCuadrado.incrementaX('R',nom);
  }else if (accion=='L'){
-    objCuadrado.incrementaX('L');
-    objCuadrado.establecerPosX(nom)
+    objCuadrado.incrementaX('L',nom);
  }
- 
- 
- 
  objCuadrado.mostrarPantalla(nom);
-
 }
 </script>
 </head>
 <body>
 <div id="contenedor">
- <div id="cuadrado1" onclick="incrementar('cuadrado1')"></div>
+ <div id="cuadrado1"></div>
 </div>
 <script>
     document.addEventListener('keydown', function(event) {
         if (event.code=="ArrowUp"){
-            incrementar('cuadrado1',"U");
+            mover('cuadrado1',"U");
         }else if (event.code=="ArrowDown"){
-            incrementar('cuadrado1',"D");
+            mover('cuadrado1',"D");
         }else if (event.code=="ArrowRight"){
-            incrementar('cuadrado1',"R");
+            mover('cuadrado1',"R");
         }else if (event.code=="ArrowLeft"){
-            incrementar('cuadrado1',"L");
+            mover('cuadrado1',"L");
         }
  
   
