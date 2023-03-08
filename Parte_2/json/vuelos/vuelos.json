@@ -1,0 +1,28 @@
+{"name": "Vuelos",
+"agencia": "Travel-HO",
+"anio": 2023,
+"active": true,
+"vuelos":
+[
+    {
+    "origen":"Palma",
+    "destino": "Oslo",
+    "fecha": "20/5/2023" },
+    {
+    "origen":"Lugo",
+    "destino": "Madrid",
+    "fecha": "15/4/2023" },
+    {
+    "origen":"Barna",
+    "destino": "Paris",
+    "fecha": "2/12/2023" },
+    {
+    "origen":"Palma",
+    "destino": "Madrid",
+    "fecha": "20/7/2023" },
+    {
+    "origen":"Palma",
+    "destino": "Paris",
+    "fecha": "5/5/2023" }
+]
+}
