@@ -12,34 +12,25 @@ import { Agencia } from './modulos/agencia.js'
   }
 
   function vuelos(vuelos) {
-    const section = document.querySelector('section');
+    const section = document.querySelector('tbody');
     
     for (const vuelo of vuelos) {
-      const myArticle = document.createElement('article');
-      const myH2 = document.createElement('h2');
-      const myPara1 = document.createElement('p');
-      const myPara2 = document.createElement('p');
-      const myPara3 = document.createElement('p');
-      const myList = document.createElement('ul');
+      const myTbody = document.createElement('tr');
+      const myPara1 = document.createElement('td');
+      const myPara2 = document.createElement('td');
+      const myPara3 = document.createElement('td');
 
-      myH2.textContent = vuelo.name;
       myPara1.textContent = `Origen: ${vuelo.origen}`;
       myPara2.textContent = `Destino: ${vuelo.destino}`;
       myPara3.textContent = `Fecha: ${vuelo.fecha}`;
 
-      
+      myTbody.appendChild(myPara1);
+      myTbody.appendChild(myPara2);
+      myTbody.appendChild(myPara3);
 
-      myArticle.appendChild(myH2);
-      myArticle.appendChild(myPara1);
-      myArticle.appendChild(myPara2);
-      myArticle.appendChild(myPara3);
-      myArticle.appendChild(myList);
-
-      section.appendChild(myArticle);
+      section.appendChild(myTbody);
     }
   }
-
-  
 
   let agencia = Agencia.crearAgencia()
   header(agencia);
