@@ -14,11 +14,6 @@ class Vuelo {
     get fecha(){
         return this._fecha;
     }
-    get activa(){
-        return this._activa;
-    }
-    get vuelos(){
-        return this._vuelos
-    }
+   
 }
 export { Vuelo };
